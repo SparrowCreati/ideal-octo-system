@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1b1b1b" />
+  <meta name="description" content="SparrowCreati is the one-person freelance portfolio of Gwen — a graphic designer with a technical background in C, Java and web development. Explore selected concept work, design thinking, and freelance experience." />
+  <meta property="og:title" content="SparrowCreati — Freelance Portfolio by Gwen" />
+  <meta property="og:description" content="A personal freelance portfolio by Gwen, showcasing concept work, visual craft, and a thoughtful one-person design practice." />
+  <meta property="og:type" content="website" />
+  <title>SparrowCreati — Freelance Portfolio by Gwen</title>
+  <style>
+    :root{--ink:#1b1b1b;--ink2:#2a2326;--paper:#fff7fb;--white:#ffffff;--lime:#ffc7ea;--coral:#ffa539;--mint:#ffe7f5;--purple:#7f5b69;--muted:#8e7380;--line:rgba(27,27,27,.12);--sans:'DM Sans',Arial,sans-serif;--display:'Space Grotesk','Arial Black',Arial,sans-serif}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:82px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    ::selection{background:var(--lime);color:var(--ink)}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    button,a{-webkit-tap-highlight-color:transparent}
+    button:focus-visible,a:focus-visible{outline:3px solid var(--coral);outline-offset:4px}
+    .skip-link{position:fixed;top:8px;left:8px;z-index:9999;padding:12px 17px;background:var(--lime);transform:translateY(-180%)}
+    .skip-link:focus{transform:translateY(0)}
+    .container{width:min(1440px,calc(100% - 112px));margin:0 auto}
+    .eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;line-height:1.6}
+    .muted{color:var(--muted)}
+    .display{font-family:var(--display);font-weight:700;letter-spacing:-.075em;line-height:.91}
+    .section{padding:130px 0;position:relative}
+    .number{font-family:var(--display);font-size:13px;font-weight:700;letter-spacing:-.01em}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:23px;border:1px solid transparent;padding:16px 21px;border-radius:999px;min-height:54px;white-space:nowrap;font-size:13px;font-weight:700;transition:background .3s,color .3s,transform .3s,border-color .3s;cursor:pointer}
+    .button:hover{transform:translateY(-4px)}
+    .button svg{width:18px;height:18px;transition:transform .3s}
+    .button:hover svg{transform:translate(3px,-3px)}
+    .button-lime{background:var(--lime);color:var(--ink)}
+    .button-lime:hover{background:#dcffa7}
+    .button-outline{border-color:rgba(255,255,255,.4);color:var(--white);background:transparent}
+    .button-outline:hover{border-color:var(--lime);color:var(--lime)}
+    .button-dark{background:var(--ink);color:var(--white)}
+    .button-dark:hover{background:#334344}
+    .button-ghost{border-color:var(--line)}
+    .button-ghost:hover{background:var(--ink);color:white}
+    .nav-wrap{position:fixed;top:20px;left:0;width:100%;z-index:70;pointer-events:none}
+    .nav{width:min(1440px,calc(100% - 70px));margin:auto;height:68px;border-radius:100px;padding:0 15px 0 26px;background:rgba(248,247,240,.93);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.62);box-shadow:0 12px 45px #00000018;display:flex;align-items:center;justify-content:space-between;gap:20px;pointer-events:auto}
+    .logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.06em;white-space:nowrap}
+    .logo-star{width:27px;height:27px;border-radius:50%;background:var(--ink);display:grid;place-items:center;color:var(--lime);font-size:17px}
+    .nav-links{display:flex;align-items:center;gap:38px;margin-left:auto}
+    .nav-links a{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;position:relative}
+    .nav-links a::after{content:"";height:2px;background:var(--coral);position:absolute;bottom:-8px;left:0;width:0;transition:width .25s}
+    .nav-links a:hover::after{width:100%}
+    .nav-cta{padding:13px 19px;min-height:44px;gap:10px;font-size:12px;margin-left:15px}
+    .menu-toggle{display:none;border:0;background:var(--ink);color:var(--white);width:45px;height:45px;border-radius:50%;cursor:pointer;align-items:center;justify-content:center}
+    .menu-toggle svg{width:21px;height:21px}
+    .progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:100;background:transparent;pointer-events:none}
+    .progress span{display:block;background:var(--coral);width:100%;height:100%;transform:scaleX(0);transform-origin:left}
+    .hero{background:var(--ink);color:var(--white);min-height:min(880px,100svh);padding:175px 0 65px;display:flex;align-items:center;overflow:hidden;position:relative}
+    .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,#ffffff08 1px,transparent 1px),linear-gradient(#ffffff08 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to right,transparent 30%,black 100%);pointer-events:none}
+    .hero-grain{position:absolute;width:1100px;height:1100px;border-radius:50%;right:-430px;top:-300px;background:radial-gradient(circle,rgba(201,245,123,.07),transparent 64%);pointer-events:none}
+    .hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.14fr .86fr;align-items:center;gap:30px;width:100%}
+    .hero-kicker{display:flex;gap:13px;align-items:center;color:#b9c9bf;margin-bottom:42px}
+    .status-dot{width:8px;height:8px;border-radius:100%;background:var(--lime);box-shadow:0 0 0 6px #c9f57b18}
+    .hero-title{font-size:clamp(76px,10.5vw,166px);margin:0;max-width:880px}
+    .hero-title span{display:block}
+    .hero-title .line-accent{color:var(--lime);position:relative}
+    .hero-title .line-accent::after{content:"";display:inline-block;width:clamp(13px,1.55vw,24px);height:clamp(13px,1.55vw,24px);background:var(--coral);border-radius:50%;margin:0 0 .07em .1em}
+    .hero-subrow{margin-top:44px;display:flex;align-items:flex-end;gap:36px;justify-content:space-between;max-width:655px}
+    .hero-subrow p{font-size:16px;line-height:1.75;color:#bcc6c2;max-width:270px;margin:0}
+    .hero-cta-row{display:flex;gap:10px;flex-wrap:wrap}
+    .hero-bottom{position:absolute;bottom:35px;left:0;right:0;z-index:2;display:flex;align-items:center;justify-content:space-between;color:#a4b5ac}
+    .scroll-hint{display:flex;gap:12px;align-items:center}
+    .scroll-hint svg{width:23px;height:23px;animation:bob 1.7s infinite ease-in-out}
+    .hero-art{position:relative;aspect-ratio:1/1;width:min(100%,660px);margin-inline:auto;filter:drop-shadow(0 34px 90px #0006)}
+    .hero-art .orbit{position:absolute;inset:7%;border:1px solid #52726880;border-radius:43%;animation:spin 24s linear infinite}
+    .hero-art .orbit.o2{border-radius:42%;transform:rotate(40deg);animation:spin2 32s linear infinite}
+    .hero-art .orbit.o3{border-radius:42%;transform:rotate(80deg);animation:spin 31s linear infinite reverse}
+    .hero-art .orbit.o4{border-radius:43%;transform:rotate(110deg);animation:spin2 36s linear infinite reverse}
+    .hero-art .orbit.o5{border-radius:42%;transform:rotate(140deg);animation:spin 41s linear infinite}
+    .target{position:absolute;inset:18%;border-radius:50%;background:var(--lime);display:grid;place-items:center;box-shadow:0 0 90px #c9f57b23;animation:breathe 6s ease-in-out infinite}
+    .target::before{content:"";width:70%;height:70%;border-radius:50%;background:var(--ink);position:absolute}
+    .target::after{content:"";width:42%;height:42%;border-radius:50%;background:var(--lime);position:absolute}
+    .target-center{position:absolute;width:14%;height:14%;background:var(--ink);border-radius:50%;z-index:2}
+    .shape{position:absolute;z-index:3;transition:transform .2s ease-out}
+    .shape.coral{top:7%;right:1%;width:18%;height:21%;background:var(--coral);clip-path:polygon(100% 0,100% 100%,0 50%);animation:floatOne 8s ease-in-out infinite}
+    .shape.mint{bottom:7%;left:2%;width:25%;height:25%;background:var(--mint);clip-path:polygon(0 100%,100% 100%,0 0);animation:floatOne 9s ease-in-out infinite reverse}
+    .shape.tag{right:0;bottom:12%;border-radius:50%;background:var(--purple);color:var(--white);width:100px;height:100px;display:grid;place-items:center;transform:rotate(12deg);box-shadow:0 15px 30px #0004;animation:tagSpin 9s ease-in-out infinite}
+    .shape.tag svg{width:60px;height:60px}
+    .tape{position:absolute;bottom:3%;left:40%;color:#93ada0;letter-spacing:.23em;font-size:10px;transform:rotate(-9deg)}
+    .ticker{overflow:hidden;background:var(--lime);border-block:1px solid var(--ink);padding:21px 0;display:flex;white-space:nowrap}
+    .ticker-track{flex:none;display:flex;align-items:center;gap:42px;min-width:max-content;animation:marquee 28s linear infinite}
+    .ticker-item{font:700 17px var(--display);letter-spacing:.09em;text-transform:uppercase;display:flex;align-items:center;gap:42px}
+    .ticker-item::after{content:"✳";font-size:23px}
+    .section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:35px;margin-bottom:54px}
+    .section-heading h2{font-size:clamp(51px,7vw,94px);margin:12px 0 0}
+    .section-intro{color:var(--muted);max-width:410px;font-size:15px;line-height:1.8;margin-bottom:8px}
+    .heading-line{width:80px;height:4px;background:var(--coral);margin-top:23px}
+    .filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin:40px 0 26px;align-items:center}
+    .filter{cursor:pointer;padding:11px 18px;border:1px solid #ccd1c8;border-radius:999px;background:transparent;color:#58635e;font-size:12px;font-weight:700;transition:all .25s}
+    .filter:hover,.filter.active{background:var(--ink);border-color:var(--ink);color:var(--white)}
+    .project-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:21px}
+    .project{position:relative;min-height:620px;background:#e0e7de;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;isolation:isolate;transition:transform .4s,box-shadow .4s}
+    .project:hover{transform:translateY(-8px);box-shadow:0 22px 65px #131b1c22}
+    .project[data-category="brand"]{grid-row:span 2;min-height:760px;background:#d8e1d4}
+    .project[data-category="campaign"]{background:#eac9c2;min-height:370px}
+    .project[data-category="digital"]{background:#c8dad0;min-height:370px}
+    .project[hidden]{display:none!important}
+    .project-media{position:relative;flex:1;min-height:0;overflow:hidden}
+    .project-overlay{z-index:5;position:absolute;top:22px;left:24px;right:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;pointer-events:none}
+    .project-index,.concept-pill{font-size:10px;letter-spacing:.12em;font-weight:700;text-transform:uppercase}
+    .concept-pill{border:1px solid #14191b60;padding:8px 12px;border-radius:50px;background:#fffef36e;backdrop-filter:blur(5px)}
+    .project-meta{position:relative;z-index:4;min-height:128px;border-top:1px solid #14191b30;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 28px;background:#f5f3ecb5;backdrop-filter:blur(10px)}
+    .project-meta h3{font:700 clamp(24px,2.7vw,35px)/1 var(--display);letter-spacing:-.06em;margin:5px 0 7px}
+    .project-meta p{margin:0;color:#596861;font-size:12px}
+    .project-open{border:1px solid #14191b6b;display:grid;place-items:center;min-width:47px;height:47px;border-radius:50%;background:transparent;cursor:pointer;transition:.25s}
+    .project-open:hover{background:var(--ink);color:white;transform:rotate(45deg)}
+    .project-open svg{width:18px;height:18px}
+    .brand-scene{position:absolute;inset:0;display:grid;place-items:center;perspective:1100px}
+    .brand-scene::before{content:"";position:absolute;width:85%;height:70%;border-radius:50%;background:#aec4ae;filter:blur(56px);opacity:.55;top:18%;left:9%}
+    .brand-stage{position:absolute;bottom:10%;width:90%;height:24%;background:#9eaea0;clip-path:polygon(25% 10%,75% 10%,100% 75%,72% 100%,4% 90%);filter:blur(5px);opacity:.5}
+    .pack{position:absolute;top:26%;left:25%;width:48%;height:52%;max-height:390px;background:#f8f8ee;transform:rotate(-4deg) skewY(1deg);box-shadow:30px 29px 0 #a8b7a7,40px 41px 35px #48624b55;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:23% 10% 8%;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+    .project:hover .pack{transform:rotate(0) skewY(0) translateY(-10px)}
+    .pack::before{content:"";position:absolute;top:8%;left:9%;width:82%;height:34%;background:#dce9d8}
+    .pack-name{position:absolute;top:13%;font:700 clamp(42px,5vw,88px)/1 var(--display);letter-spacing:-.09em;z-index:2}
+    .pack-note{position:relative;font-size:clamp(7px,.7vw,10px);letter-spacing:.2em;font-weight:700;text-align:center;white-space:nowrap}
+    .pack-seal{position:relative;width:clamp(72px,9vw,130px);aspect-ratio:1;background:#afd3bf;border-radius:50%;display:grid;place-items:center}
+    .pack-seal::before{content:"";width:65%;height:65%;border:1px solid #3b6153;border-radius:50%;position:absolute}
+    .pack-seal::after{content:"+";font:300 50px var(--display);color:#3b6153}
+    .small-pack{position:absolute;right:12%;bottom:16%;width:19%;height:35%;background:#567668;transform:rotate(8deg);box-shadow:14px 18px 25px #293d3255;display:grid;place-items:center;transition:transform .55s}
+    .project:hover .small-pack{transform:rotate(3deg) translate(5px,-12px)}
+    .small-pack>span{display:flex;flex-direction:column;align-items:center;justify-content:center;width:78%;height:58%;background:#e9efe5;font:700 clamp(15px,2vw,26px) var(--display);letter-spacing:-.07em}
+    .small-pack small{font-size:7px;letter-spacing:.12em;font-family:var(--sans);margin-top:5px}
+    .coral-dot{position:absolute;right:9%;bottom:11%;width:11%;aspect-ratio:1;border-radius:50%;background:var(--coral);box-shadow:12px 13px 10px #6d645322;animation:bob 7s ease-in-out infinite}
+    .brand-floating{position:absolute;top:15%;left:11%;border:1px solid #648677aa;width:22%;height:22%;border-radius:50%;display:grid;place-items:center;transform:rotate(-19deg);color:#6a897c;font:500 11px var(--display);letter-spacing:.1em;text-align:center}
+    .brand-floating::after{content:"";position:absolute;inset:16%;border-radius:50%;border:1px solid #64867788}
+    .campaign-scene{position:absolute;inset:0;display:grid;grid-template-columns:1.4fr .6fr;padding:70px 24px 22px;gap:14px}
+    .poster{background:var(--purple);border-radius:4px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:6%;color:var(--white)}
+    .poster::before{content:"";position:absolute;inset:40% auto 0 0;width:60%;background:#f2967a;clip-path:polygon(0 0,100% 100%,0 100%)}
+    .poster-copy{z-index:1;position:relative;font:700 clamp(36px,5.2vw,80px)/.82 var(--display);letter-spacing:-.08em}
+    .poster-copy span{display:block}
+    .poster-copy span:last-child{color:var(--lime)}
+    .poster-rings{position:absolute;right:-12%;top:10%;width:62%;aspect-ratio:1;border:1px solid #ab8ec0;border-radius:50%;box-shadow:0 0 0 15px #433374,0 0 0 16px #ab8ec0,0 0 0 30px #433374,0 0 0 31px #ab8ec0,0 0 0 45px #433374,0 0 0 46px #ab8ec0;animation:breathe 6s ease-in-out infinite}
+    .mini-posters{display:grid;grid-template-rows:1fr 1fr;gap:13px;min-width:0}
+    .mini-poster{border-radius:4px;background:var(--coral);display:flex;flex-direction:column;justify-content:center;padding:11%;font:700 clamp(15px,1.75vw,28px)/.93 var(--display);letter-spacing:-.05em;transition:transform .4s}
+    .mini-poster:last-child{background:var(--ink);color:var(--lime);position:relative;overflow:hidden}
+    .mini-poster:last-child::after{content:"";position:absolute;width:60%;height:45%;border:2px solid var(--lime);border-radius:22px;top:25%;right:-10%;box-shadow:-12px 12px 0 -1px var(--ink),-12px 12px 0 1px var(--lime),-24px 24px 0 -1px var(--ink),-24px 24px 0 1px var(--lime)}
+    .project:hover .mini-poster:first-child{transform:translateY(-6px)}
+    .project:hover .mini-poster:last-child{transform:translateY(6px)}
+    .digital-scene{position:absolute;inset:0;padding:83px 7% 25px;display:grid;place-items:center}
+    .browser{width:90%;height:86%;background:#fbfaf3;border:9px solid #aeb8b1;border-radius:11px;position:relative;box-shadow:9px 18px 20px #4361552b;overflow:hidden;transition:transform .4s}
+    .project:hover .browser{transform:translateY(-6px)}
+    .browser-bar{height:24px;background:#e7ece6;display:flex;align-items:center;gap:5px;padding:0 10px}
+    .browser-bar i{height:6px;width:6px;border-radius:50%;background:var(--coral)}
+    .browser-bar i:nth-child(2){background:#e6c26c}.browser-bar i:nth-child(3){background:#7abb9e}
+    .browser-head{display:flex;justify-content:space-between;margin:16px 20px;border-bottom:1px solid #ddd;padding-bottom:10px;font:700 12px var(--display)}
+    .browser-head small{font:600 9px var(--sans)}
+    .browser-body{padding:12px 20px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:18px}
+    .browser-body strong{font:700 clamp(18px,2.5vw,36px)/.95 var(--display);letter-spacing:-.08em;display:block}
+    .browser-body p{font-size:9px;color:#54615a;line-height:1.4}
+    .browser-pill{display:inline-block;margin-top:2px;color:white;background:var(--ink);border-radius:20px;padding:5px 9px;font-size:7px;font-weight:700}
+    .web-art{width:100%;aspect-ratio:1.1;background:#aac4b9;position:relative;overflow:hidden;background-image:linear-gradient(#75998e60 1px,transparent 1px),linear-gradient(90deg,#75998e60 1px,transparent 1px);background-size:16px 16px}
+    .web-art::before{content:"";position:absolute;inset:22%;background:var(--coral);border-radius:50%}
+    .web-art::after{content:"";position:absolute;inset:36%;background:var(--ink);border-radius:50%}
+    .phone{position:absolute;right:1%;bottom:5%;width:27%;height:65%;border:8px solid var(--ink);border-radius:19px;background:#f8f8ee;box-shadow:8px 15px 13px #1327253b;display:flex;flex-direction:column;gap:10px;padding:10px;transition:transform .4s}
+    .project:hover .phone{transform:rotate(5deg) translateY(-8px)}
+    .phone-name{font:700 clamp(12px,1.7vw,19px)/.95 var(--display)}
+    .phone .web-art{aspect-ratio:1/1.2}
+    .phone-label{font:700 clamp(11px,1.4vw,16px)/.95 var(--display);letter-spacing:-.05em}
+    .project-note{font-size:11px;color:var(--muted);line-height:1.6;margin-top:17px}
+    .proof{background:var(--ink);color:white;padding:82px 0}
+    .proof-inner{display:grid;grid-template-columns:1fr 2.15fr;gap:40px;align-items:center}
+    .proof-lead{font:700 clamp(35px,4vw,53px)/1.03 var(--display);letter-spacing:-.06em}
+    .proof-lead em{color:var(--lime);font-style:normal}
+    .proof-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid #485356}
+    .stat{padding:12px 23px;border-right:1px solid #485356}
+    .stat strong{display:block;font:700 clamp(42px,5vw,80px)/1 var(--display);letter-spacing:-.08em;color:var(--lime)}
+    .stat span{display:block;color:#afc0b5;font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:700;line-height:1.5;margin-top:13px}
+    .stat small{display:block;color:#7f978a;font-size:10px;margin-top:9px}
+    .capabilities{background:var(--paper)}
+    .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .cap-card{min-height:420px;position:relative;overflow:hidden;border-radius:12px;padding:31px;display:flex;flex-direction:column;justify-content:space-between;color:white;transition:transform .3s}
+    .cap-card:hover{transform:translateY(-8px)}
+    .cap-card.c1{background:var(--ink)}.cap-card.c2{background:var(--purple)}.cap-card.c3{background:#265e59}
+    .cap-card .eyebrow{color:var(--lime)}
+    .cap-card h3{font:700 clamp(29px,3vw,44px)/1.02 var(--display);letter-spacing:-.065em;margin:0 0 12px}
+    .cap-card p{margin:0;color:#d8e1db;font-size:13px;line-height:1.7;max-width:255px}
+    .cap-icon{height:180px;display:grid;place-items:center;position:relative}
+    .cap-icon .disc{height:132px;width:132px;background:var(--lime);border-radius:50%;display:grid;place-items:center;transition:transform .5s}
+    .cap-card:hover .disc{transform:rotate(85deg) scale(1.07)}
+    .cap-icon .disc::before{content:"";display:block;width:56%;height:56%;background:var(--ink);border-radius:50%}
+    .cap-icon .disc::after{content:"";position:absolute;width:136px;height:4px;background:var(--ink)}
+    .cap-icon .windows{width:145px;height:120px;position:relative}
+    .cap-icon .windows i{position:absolute;top:0;left:0;width:100px;height:80px;border:1px solid #e8b8b6;border-radius:7px;transition:transform .45s}
+    .cap-icon .windows i:nth-child(2){transform:translate(15px,12px)}.cap-icon .windows i:nth-child(3){transform:translate(30px,24px)}.cap-icon .windows i:nth-child(4){transform:translate(45px,36px)}
+    .cap-card:hover .windows i:nth-child(2){transform:translate(4px,8px)}.cap-card:hover .windows i:nth-child(3){transform:translate(8px,16px)}.cap-card:hover .windows i:nth-child(4){transform:translate(12px,24px)}
+    .cap-icon .code-lines{width:145px;display:flex;flex-direction:column;gap:16px}
+    .cap-icon .code-lines i{height:2px;background:#bce5d7;width:70%;position:relative;transition:width .4s}
+    .cap-icon .code-lines i:nth-child(2){width:100%}.cap-icon .code-lines i:nth-child(3){width:55%}.cap-icon .code-lines i:nth-child(4){width:87%}
+    .cap-card:hover .code-lines i{width:100%}
+    .about{background:#e7e8df;overflow:hidden}
+    .about-inner{display:grid;grid-template-columns:.75fr 1.25fr;gap:8%;align-items:center}
+    .about-graphic{width:100%;aspect-ratio:1;position:relative;display:grid;place-items:center;border-radius:50%;background:#d1dccf}
+    .about-graphic::before{content:"";inset:8%;position:absolute;border:1px solid #a1b3a6;border-radius:50%}
+    .about-graphic::after{content:"";inset:16%;position:absolute;border:1px solid #a1b3a6;border-radius:50%}
+    .about-symbol{position:relative;width:65%;aspect-ratio:1;background:var(--lime);border-radius:50%;display:grid;place-items:center;transform:rotate(-28deg);animation:spin 30s linear infinite}
+    .about-symbol::after{content:"";width:59%;aspect-ratio:1;border-radius:50%;background:var(--ink)}
+    .about-sticker{position:absolute;left:-7%;bottom:10%;width:32%;aspect-ratio:1;border-radius:50%;background:var(--coral);display:grid;place-items:center;text-align:center;transform:rotate(-18deg);font:700 clamp(11px,1.5vw,20px)/1.1 var(--display)}
+    .about h2{font-size:clamp(50px,7vw,103px);margin:17px 0 28px}
+    .about h2 span{color:#738e7c}
+    .about p{font-size:16px;line-height:1.85;color:#4f5c56;max-width:570px}
+    .about-bottom{display:flex;flex-wrap:wrap;gap:10px;margin-top:29px}
+    .about-chip{border:1px solid #a6b0a5;border-radius:99px;padding:10px 13px;text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:700}
+    .process{background:var(--ink);color:var(--white)}
+    .process .section-intro{color:#b3c2b8}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:54px}
+    .step{min-height:285px;background:#222d2e;border:1px solid #344242;border-radius:10px;padding:25px;display:flex;flex-direction:column;transition:background .3s,transform .3s}
+    .step:hover{transform:translateY(-7px);background:#2b3a39}
+    .step-number{width:42px;height:42px;border-radius:50%;background:var(--lime);display:grid;place-items:center;color:var(--ink);font:700 12px var(--display)}
+    .step-rule{width:100%;height:1px;background:#54625b;margin-top:26px}
+    .step h3{font:700 30px var(--display);letter-spacing:-.06em;margin:17px 0 11px}
+    .step p{color:#aebfb6;font-size:13px;line-height:1.75;margin:0}
+    .process-foot{color:#91a59b;margin-top:28px;font-size:11px;line-height:1.7}
+    .contact{background:var(--lime);padding:125px 0 45px;position:relative;overflow:hidden}
+    .contact::before{content:"";position:absolute;width:670px;height:670px;border-radius:50%;border:1px solid #80a64c;top:-240px;right:-180px;box-shadow:0 0 0 55px var(--lime),0 0 0 56px #80a64c,0 0 0 110px var(--lime),0 0 0 111px #80a64c;opacity:.55}
+    .contact-main{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:38px}
+    .contact h2{font-size:clamp(68px,11vw,162px);margin:25px 0 22px;max-width:900px}
+    .contact h2 em{font-style:normal;color:#628e43}
+    .contact p{max-width:400px;line-height:1.75;font-size:15px;margin:0}
+    .contact-action{flex-shrink:0;width:178px;height:178px;border-radius:50%;background:var(--ink);color:white;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;font:700 14px var(--display);transition:transform .4s,background .3s}
+    .contact-action:hover{transform:rotate(12deg) scale(1.06);background:var(--purple)}
+    .contact-action svg{width:39px;height:39px}
+    .contact-bottom{position:relative;z-index:1;border-top:1px solid #597d4090;margin-top:100px;padding-top:23px;display:flex;justify-content:space-between;align-items:center;gap:20px;font:700 11px var(--display);letter-spacing:.05em;text-transform:uppercase}
+    .contact-bottom a{text-decoration:underline;text-underline-offset:4px}
+    .reveal{opacity:0;transform:translateY(46px);transition:opacity .85s cubic-bezier(.2,.7,.2,1),transform .85s cubic-bezier(.2,.7,.2,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-delay-1{transition-delay:.11s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.29s}
+    .modal{position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;padding:24px;background:#080d0bd9;backdrop-filter:blur(14px)}
+    .modal.open{display:flex;animation:fadeIn .25s ease}
+    .modal-dialog{position:relative;width:min(780px,100%);max-height:min(830px,90vh);overflow-y:auto;background:var(--paper);border-radius:16px;box-shadow:0 30px 100px #0007;padding:48px}
+    .modal-close{position:absolute;top:23px;right:23px;width:44px;height:44px;border-radius:50%;border:0;background:var(--ink);color:var(--white);display:grid;place-items:center;cursor:pointer}
+    .modal-close svg{width:22px}
+    .modal-dialog h2{font:700 clamp(46px,7vw,76px)/.95 var(--display);letter-spacing:-.075em;margin:14px 0 18px}
+    .modal-dialog p{line-height:1.8;color:#536159;max-width:590px}
+    .modal-info{display:grid;grid-template-columns:1fr 1fr;gap:26px;padding:25px 0;margin:30px 0;border-block:1px solid #c8cec5}
+    .modal-info strong{display:block;margin:8px 0;font:700 15px var(--display)}
+    .modal-info p{margin:0;font-size:13px;line-height:1.5}
+    .modal-example{height:200px;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;font:700 clamp(45px,7vw,75px)/1 var(--display);letter-spacing:-.08em;margin-top:20px;overflow:hidden}
+    .modal-example.brand{background:#c3d8c8;color:#203a2f}.modal-example.campaign{background:#433374;color:#c9f57b}.modal-example.digital{background:#c9dcd1;color:#14191b}
+    .modal-example span{position:relative}.modal-example span::after{content:"";position:absolute;width:16px;height:16px;right:-30px;bottom:8px;border-radius:50%;background:var(--coral)}
+    @keyframes spin{to{transform:rotate(360deg)}}@keyframes spin2{to{transform:rotate(400deg)}}@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}@keyframes floatOne{0%,100%{translate:0 0}50%{translate:0 20px}}@keyframes tagSpin{0%,100%{transform:rotate(12deg)}50%{transform:rotate(-10deg)}}@keyframes marquee{to{transform:translateX(-50%)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @media(min-width:1460px){.hero-title{font-size:155px}}
+    @media(max-width:1100px){.container{width:calc(100% - 72px)}.hero{min-height:800px}.hero-title{font-size:clamp(75px,10vw,120px)}.hero-subrow{flex-direction:column;align-items:flex-start;gap:22px}.project[data-category="brand"]{min-height:690px}.project{min-height:560px}.project[data-category="campaign"],.project[data-category="digital"]{min-height:340px}.pack{padding-top:28%}.project-meta{padding:19px;min-height:119px}.campaign-scene{padding:72px 13px 13px}.project-overlay{left:14px;right:14px}.proof-inner{grid-template-columns:1fr;gap:40px}.proof-stats{border-left:0}}
+    @media(max-width:790px){.container{width:calc(100% - 42px)}.nav-wrap{top:12px}.nav{width:calc(100% - 28px);height:61px;padding:0 8px 0 19px}.nav-cta{display:none}.menu-toggle{display:flex}.nav-links{position:absolute;right:14px;top:71px;left:14px;background:var(--white);border-radius:20px;padding:25px;box-shadow:0 30px 50px #0003;display:none;flex-direction:column;align-items:flex-start;gap:23px}.nav-links.open{display:flex}.nav-links a{font-size:16px}.hero{min-height:unset;padding:148px 0 88px}.hero-inner{grid-template-columns:1fr}.hero-kicker{margin-bottom:22px}.hero-title{font-size:clamp(75px,13vw,130px)}.hero-subrow{margin-top:26px}.hero-art{width:min(70%,490px);margin:-18px auto 0}.hero-bottom{bottom:23px}.section{padding:95px 0}.section-heading{display:block}.section-heading h2{font-size:clamp(56px,10vw,83px)}.section-intro{margin-top:20px}.project-grid{grid-template-columns:1fr}.project[data-category="brand"]{min-height:650px;grid-row:auto}.project[data-category="campaign"],.project[data-category="digital"]{min-height:440px}.pack{padding-top:22%}.pack-name{font-size:clamp(55px,11vw,90px)}.campaign-scene{padding:75px 24px 23px}.poster-copy{font-size:clamp(50px,10vw,90px)}.mini-poster{font-size:clamp(19px,4vw,31px)}.browser-body strong{font-size:clamp(27px,5vw,44px)}.phone-name{font-size:17px}.phone-label{font-size:15px}.cap-grid{grid-template-columns:1fr}.cap-card{min-height:335px}.cap-icon{height:135px}.cap-icon .disc{width:120px;height:120px}.cap-icon .disc::after{width:124px}.about-inner{grid-template-columns:1fr;gap:25px}.about-graphic{width:min(70%,390px);margin:auto}.about h2{font-size:clamp(65px,12vw,106px)}.process-grid{grid-template-columns:1fr 1fr}.contact-main{align-items:flex-start;flex-direction:column}.contact h2{font-size:clamp(77px,13vw,120px)}.contact-action{align-self:flex-end;margin-top:-10px}.contact-bottom{margin-top:65px}}
+    @media(max-width:480px){.container{width:calc(100% - 34px)}.eyebrow{font-size:10px}.hero{padding:138px 0 88px}.hero-title{font-size:clamp(59px,15.6vw,85px)}.hero-title .line-accent::after{width:12px;height:12px}.hero-art{width:83%;margin:5px auto 0}.hero-bottom{font-size:9px}.shape.tag{width:65px;height:65px}.shape.tag svg{width:42px;height:42px}.hero-cta-row .button{font-size:12px;padding:12px 16px;min-height:49px}.ticker{padding:16px 0}.ticker-item{font-size:13px}.project[data-category="brand"]{min-height:535px}.project[data-category="campaign"],.project[data-category="digital"]{min-height:385px}.project-overlay{top:17px}.project-meta h3{font-size:25px}.project-meta p{font-size:11px}.pack{left:23%;width:47%;height:50%;top:27%;padding:26% 8% 6%}.pack-name{font-size:47px}.pack-seal{width:64px}.pack-seal::after{font-size:33px}.pack-note{font-size:6px}.small-pack{width:21%;height:30%;right:9%}.small-pack>span{font-size:14px}.brand-floating{font-size:8px}.campaign-scene{padding:66px 11px 11px;gap:8px}.poster-copy{font-size:clamp(37px,11vw,60px)}.mini-poster{font-size:clamp(12px,4vw,20px)}.digital-scene{padding:77px 2% 15px}.browser{width:90%;height:88%;border-width:6px}.browser-head{margin:10px;font-size:8px;padding-bottom:7px}.browser-head small{font-size:6px}.browser-body{padding:7px 10px;gap:6px}.browser-body strong{font-size:23px}.browser-body p{font-size:7px}.phone{right:0;border-width:5px;padding:7px;gap:6px}.phone-name{font-size:11px}.phone-label{font-size:10px}.stat{padding:11px}.stat strong{font-size:40px}.stat span{font-size:9px}.proof{padding:67px 0}.proof-inner{gap:32px}.proof-lead{font-size:37px}.process-grid{grid-template-columns:1fr}.step{min-height:205px}.contact{padding-top:100px}.contact h2{font-size:clamp(64px,15vw,82px)}.contact-action{width:145px;height:145px}.contact-bottom{flex-wrap:wrap;gap:12px;font-size:9px}.modal-dialog{padding:30px 23px}.modal-info{grid-template-columns:1fr;gap:15px}.modal-close{right:15px;top:15px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+  
+    .logo{gap:12px}
+    .brand-wordmark{display:inline-flex;align-items:center;gap:0}
+    .logo-star{display:none}
+    body{background:linear-gradient(180deg,#fff7fb 0%,#fff7fb 60%,#fff1f8 100%)}
+    .nav{background:rgba(255,247,251,.94);border:1px solid rgba(255,199,234,.55);box-shadow:0 14px 38px rgba(38,18,27,.10)}
+    .nav-links a::after{background:var(--coral)}
+    .button-lime{background:var(--coral);color:var(--ink)}
+    .button-lime:hover{background:#ffba5f}
+    .button-dark{background:var(--ink);color:var(--white)}
+    .button-dark:hover{background:#333}
+    .button-ghost:hover{background:var(--coral);color:var(--ink);border-color:var(--coral)}
+    .button-outline{border-color:rgba(255,255,255,.68);color:var(--white)}
+    .button-outline:hover{border-color:var(--lime);background:rgba(255,199,234,.18);color:var(--white)}
+    .hero{background:radial-gradient(circle at 18% 20%, rgba(255,199,234,.12), transparent 28%), radial-gradient(circle at 86% 18%, rgba(255,165,57,.16), transparent 24%), linear-gradient(180deg,#1b1b1b 0%, #231d20 100%)}
+    .hero::before{background-image:radial-gradient(circle,rgba(255,255,255,.07) 1px,transparent 1px);background-size:26px 26px;mask-image:none;opacity:.42}
+    .hero-grain{background:radial-gradient(circle,rgba(255,199,234,.16),transparent 64%)}
+    .hero-title .line-accent{color:var(--lime)}
+    .hero-title .line-accent::after{background:var(--coral)}
+    .status-dot{background:var(--coral);box-shadow:0 0 0 6px rgba(255,165,57,.18)}
+    .hero-subrow p,.hero-bottom,.hero-kicker{color:#f7d5ea}
+    .scroll-hint svg{color:var(--coral)}
+    .hero-art .orbit{border-color:rgba(255,199,234,.34)}
+    .target{background:#fff;border-radius:50%;overflow:hidden;box-shadow:0 24px 50px rgba(0,0,0,.28), 0 0 0 10px rgba(255,199,234,.13)}
+    .target::before,.target::after,.target-center{display:none}
+    .shape.coral{background:var(--coral)}
+    .shape.mint{background:var(--lime)}
+    .shape.tag{background:#fff;color:var(--ink)}
+    .ticker{background:var(--lime);border-block:1px solid rgba(27,27,27,.16)}
+    .ticker-item{color:var(--ink)}
+    .project,.cap-card,.step,.modal-dialog,.stat{border-radius:28px}
+    .project,.cap-card{border-color:rgba(255,199,234,.45);box-shadow:0 18px 40px rgba(53,28,39,.06)}
+    .project-media{border-radius:26px 26px 0 0}
+    .project-meta{background:#fff}
+    .concept-pill{background:rgba(255,255,255,.85);color:var(--ink);border:1px solid rgba(255,165,57,.25)}
+    .project-open{background:var(--coral);color:var(--ink)}
+    .project-open:hover{background:#ffbb60}
+    .brand-stage,.cap-card.c1,.cap-card.c2,.cap-card.c3{background:linear-gradient(180deg,#fff3fa 0%,#fff 100%)}
+    .pack{background:#ffc7ea;color:#1b1b1b;border-radius:26px;box-shadow:0 16px 30px rgba(49,16,32,.14)}
+    .small-pack{background:#ffa539;color:#1b1b1b;border-radius:18px}
+    .pack-seal{background:#fff}
+    .poster{background:#1b1b1b;border-radius:24px}
+    .poster-copy{color:#ffc7ea}
+    .mini-poster{background:#ffa539;color:#1b1b1b;border-radius:20px}
+    .browser,.phone{border-radius:24px;border-color:#1b1b1b;box-shadow:0 18px 35px rgba(27,27,27,.12)}
+    .browser-head,.phone{background:#fff7fb}
+    .browser-pill{background:var(--coral);color:var(--ink)}
+    .proof{background:linear-gradient(180deg,#211a1d 0%,#1b1b1b 100%)}
+    .stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,199,234,.16)}
+    .stat strong{color:var(--coral)}
+    .cap-card h3,.section-heading h2 span,.about h2 span{color:var(--coral)}
+    .about{background:linear-gradient(180deg,#fff7fb 0%,#fff2f8 100%)}
+    .about-graphic{background:radial-gradient(circle at 50% 35%, #fff 0%, #fff 25%, #ffc7ea 26%, #ffc7ea 58%, #1b1b1b 59%, #1b1b1b 100%);border-radius:34px}
+    .about-symbol{background:none;border-radius:50%;display:grid;place-items:center}
+    .about-sticker{background:#ffa539;color:#1b1b1b;border-radius:18px}
+    .about-chip{background:#fff;border:1px solid rgba(255,199,234,.75);border-radius:999px}
+    .process{background:#1b1b1b;color:#fff}
+    .process .section-intro,.process-foot,.step p{color:#f2ddea}
+    .step{background:#2a2326;border:1px solid rgba(255,199,234,.12)}
+    .step-number{background:var(--coral)}
+    .contact{background:linear-gradient(180deg,#ffc7ea 0%,#ffb5df 100%)}
+    .contact::before{border-color:#ef88c0;box-shadow:0 0 0 55px rgba(255,199,234,.55),0 0 0 56px #ef88c0,0 0 0 110px rgba(255,199,234,.35),0 0 0 111px #ef88c0}
+    .contact h2 em{color:#1b1b1b}
+    .contact-action{background:#1b1b1b;color:#fff}
+    .contact-action:hover{background:var(--coral);color:#1b1b1b}
+    .contact-bottom{border-top:1px solid rgba(27,27,27,.15)}
+    .modal-example.brand{background:#ffc7ea;color:#1b1b1b}
+    .modal-example.campaign{background:#1b1b1b;color:#ffc7ea}
+    .modal-example.digital{background:#fff0f8;color:#1b1b1b}
+
+  
+    .logo{gap:12px}
+    .brand-wordmark{display:inline-flex;align-items:center;gap:0}
+    .logo-star{display:none}
+    /* SparrowCreati logo: inline SVG sparrow, fully code-generated. */
+    .sparrow-logo-svg { --size:84px; width:var(--size); height:var(--size); display:block; flex:none; }
+    .sparrow-logo-svg svg { display:block; width:100%; height:100%; overflow:visible; filter:drop-shadow(0 8px 24px rgba(0,0,0,.16)); }
+    .nav-logo { --size:42px; }
+    .hero-logo { width:82%; height:auto; }
+    .about-logo { width:78%; height:auto; }
+    .target { background:transparent; overflow:visible; box-shadow:none; display:grid; place-items:center; }
+    .target .sparrow-logo-svg { width:82%; height:auto; aspect-ratio:1; }
+    .target-center { display:none; }
+    .about-symbol { background:none; border-radius:50%; display:grid; place-items:center; }
+    .about-symbol::after { display:none; }
+    .about-symbol .sparrow-logo-svg { width:78%; height:auto; aspect-ratio:1; }
+
+
+    /* An extra bit of personality for the code-drawn SparrowCreati bird. */
+    .sparrow-logo-svg .bird-sparrow{transform-origin:55% 58%;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+    .sparrow-logo-svg .bird-wing{transform-origin:55% 56%;transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+    .logo:hover .bird-sparrow{transform:rotate(-7deg) translateY(-1px)}
+    .logo:hover .bird-wing{transform:rotate(-8deg)}
+    .hero-logo .bird-sparrow{animation:sparrow-bob 5s ease-in-out infinite}
+    @keyframes sparrow-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+    @media(prefers-reduced-motion:reduce){.hero-logo .bird-sparrow{animation:none}.sparrow-logo-svg .bird-sparrow,.sparrow-logo-svg .bird-wing{transition:none}}
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="progress" aria-hidden="true"><span id="progress-line"></span></div>
+  <div class="nav-wrap"><nav class="nav" aria-label="Main navigation">
+    <a class="logo" href="#top" aria-label="SparrowCreati, back to top"><span class="sparrow-logo-svg nav-logo" aria-hidden="true"><svg viewBox="0 0 100 100" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#111111"/>
+  <circle cx="50" cy="50" r="45.4" fill="#ffc7ea"/>
+  <g class="bird-sparrow">
+    <!-- Distinctive three-feather tail angled upward behind the round little bird -->
+    <path d="M39 58 C30 53 22 48 12 46 C18 55 26 62 36 64 Z" fill="#ffa539"/>
+    <path d="M39 55 C30 46 24 41 17 38 C20 49 27 58 36 61 Z" fill="#ffa539"/>
+    <path d="M40 54 C33 43 29 37 23 34 C24 44 29 53 38 59 Z" fill="#ffa539"/>
+    <!-- Rounded bird body, rising into the neck and head -->
+    <path d="M35 57 C35 49 40 44 49 41 C48 31 55 25 65 25 C75 25 82 32 82 41 C82 43 81 45 80 47 C82 59 75 74 63 79 C51 84 38 76 35 65 C34 62 34 60 35 57 Z" fill="#ffa539"/>
+    <!-- Short, softly pointed beak -->
+    <path d="M79 40 Q85 41 89 44 Q85 47 80 47 Z" fill="#ffa539"/>
+    <!-- Little feather tufts on top of the head -->
+    <path d="M57 29 Q55 22 50 21" fill="none" stroke="#ffa539" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M63 27 Q61 21 57 19" fill="none" stroke="#ffa539" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- A signature swept teardrop wing, white like the original SparrowCreati mark -->
+    <path class="bird-wing" d="M45 53 C49 46 60 45 66 49 C72 53 71 59 66 65 C62 69 55 72 45 70 C49 65 50 59 45 53 Z" fill="#ffffff"/>
+    <path d="M47 67 Q55 67 63 61" fill="none" stroke="#f2e5e6" stroke-width="1.7" stroke-linecap="round" opacity=".65"/>
+    <!-- Expressive eye and tiny glint -->
+    <circle cx="70.2" cy="37.2" r="3.3" fill="#1b1b1b"/>
+    <circle cx="71.25" cy="36.15" r="1.15" fill="#ffffff"/>
+    <!-- Rosy cheek -->
+    <ellipse cx="75.7" cy="45.7" rx="3.8" ry="2.8" fill="#f185a5" opacity=".95"/>
+    <!-- Little legs and three-toed sparrow feet -->
+    <path d="M51 77 L49 82 M49 82 L44 83 M49 82 L53 83 M66 77 L65 82 M65 82 L61 83 M65 82 L69 83" fill="none" stroke="#a85b27" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Tiny sparkle for a sweet, handmade mood -->
+  <path d="M23 26 Q24 20 25 26 Q31 27 25 28 Q24 34 23 28 Q17 27 23 26 Z" fill="#fffafc" opacity=".9"/>
+</svg></span><span class="brand-wordmark">SPARROWCREATI<span style="color:var(--coral)">.</span></span></a>
+    <div class="nav-links" id="nav-links"><a href="#work">Work</a><a href="#expertise">Expertise</a><a href="#about">About</a><a href="#process">Process</a><a href="#contact">Contact</a></div>
+    <a class="button button-dark nav-cta" href="https://www.upwork.com/freelancers/~01012ef289c2777a97" target="_blank" rel="noopener noreferrer">Connect on Upwork <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 19 19 5M7 5h12v12"/></svg></a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
+  </nav></div>
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-heading">
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <div class="hero-kicker eyebrow"><span class="status-dot" aria-hidden="true"></span> One-person freelance studio <span style="opacity:.45">/</span> by Gwen</div>
+          <h1 class="display hero-title" id="hero-heading"><span>Sparrow</span><span class="line-accent">Creati</span><span>studio.</span></h1>
+          <div class="hero-subrow"><p>Hi, I'm Gwen — the designer behind SparrowCreati. I build warm, playful, and thoughtful visuals for brands and people who want something personal, polished, and full of character.</p>
+            <div class="hero-cta-row"><a href="#work" class="button button-lime">View portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 14 0m-6-6 6 6-6 6"/></svg></a><a class="button button-outline" href="#about">Meet Gwen</a></div>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Animated SparrowCreati sparrow emblem with pink and orange shapes" role="img">
+          <div class="orbit"></div><div class="orbit o2"></div><div class="orbit o3"></div><div class="orbit o4"></div><div class="orbit o5"></div>
+          <div class="target"><span class="sparrow-logo-svg hero-logo" aria-hidden="true"><svg viewBox="0 0 100 100" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#111111"/>
+  <circle cx="50" cy="50" r="45.4" fill="#ffc7ea"/>
+  <g class="bird-sparrow">
+    <!-- Distinctive three-feather tail angled upward behind the round little bird -->
+    <path d="M39 58 C30 53 22 48 12 46 C18 55 26 62 36 64 Z" fill="#ffa539"/>
+    <path d="M39 55 C30 46 24 41 17 38 C20 49 27 58 36 61 Z" fill="#ffa539"/>
+    <path d="M40 54 C33 43 29 37 23 34 C24 44 29 53 38 59 Z" fill="#ffa539"/>
+    <!-- Rounded bird body, rising into the neck and head -->
+    <path d="M35 57 C35 49 40 44 49 41 C48 31 55 25 65 25 C75 25 82 32 82 41 C82 43 81 45 80 47 C82 59 75 74 63 79 C51 84 38 76 35 65 C34 62 34 60 35 57 Z" fill="#ffa539"/>
+    <!-- Short, softly pointed beak -->
+    <path d="M79 40 Q85 41 89 44 Q85 47 80 47 Z" fill="#ffa539"/>
+    <!-- Little feather tufts on top of the head -->
+    <path d="M57 29 Q55 22 50 21" fill="none" stroke="#ffa539" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M63 27 Q61 21 57 19" fill="none" stroke="#ffa539" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- A signature swept teardrop wing, white like the original SparrowCreati mark -->
+    <path class="bird-wing" d="M45 53 C49 46 60 45 66 49 C72 53 71 59 66 65 C62 69 55 72 45 70 C49 65 50 59 45 53 Z" fill="#ffffff"/>
+    <path d="M47 67 Q55 67 63 61" fill="none" stroke="#f2e5e6" stroke-width="1.7" stroke-linecap="round" opacity=".65"/>
+    <!-- Expressive eye and tiny glint -->
+    <circle cx="70.2" cy="37.2" r="3.3" fill="#1b1b1b"/>
+    <circle cx="71.25" cy="36.15" r="1.15" fill="#ffffff"/>
+    <!-- Rosy cheek -->
+    <ellipse cx="75.7" cy="45.7" rx="3.8" ry="2.8" fill="#f185a5" opacity=".95"/>
+    <!-- Little legs and three-toed sparrow feet -->
+    <path d="M51 77 L49 82 M49 82 L44 83 M49 82 L53 83 M66 77 L65 82 M65 82 L61 83 M65 82 L69 83" fill="none" stroke="#a85b27" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Tiny sparkle for a sweet, handmade mood -->
+  <path d="M23 26 Q24 20 25 26 Q31 27 25 28 Q24 34 23 28 Q17 27 23 26 Z" fill="#fffafc" opacity=".9"/>
+</svg></span><span class="target-center"></span></div><span class="shape coral"></span><span class="shape mint"></span>
+          <span class="shape tag" aria-hidden="true"><svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M40 5v70M5 40h70M15 15l50 50M65 15 15 65"/><circle cx="40" cy="40" r="10" fill="currentColor" stroke="none"/></svg></span>
+          <span class="tape" aria-hidden="true">SPARROWCREATI / PERSONAL WORK — ✳</span>
+        </div>
+      </div>
+      <div class="container hero-bottom eyebrow"><span>ONE-PERSON STUDIO / PHILIPPINES · WORLDWIDE</span><span class="scroll-hint">SCROLL TO EXPLORE <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3v18m-7-7 7 7 7-7"/></svg></span></div>
+    </section>
+    <div class="ticker" aria-hidden="true"><div class="ticker-track">
+      <span class="ticker-item">SparrowCreati</span><span class="ticker-item">One-person studio</span><span class="ticker-item">Graphic design</span><span class="ticker-item">Personal creative direction</span><span class="ticker-item">SparrowCreati</span><span class="ticker-item">One-person studio</span><span class="ticker-item">Graphic design</span><span class="ticker-item">Personal creative direction</span>
+    </div></div>
+    <section class="section" id="work" aria-labelledby="work-heading"><div class="container">
+      <div class="section-heading"><div class="reveal"><span class="eyebrow muted">01 / Selected work</span><h2 class="display" id="work-heading">The look of <span style="color:#b47791">SparrowCreati.</span></h2><div class="heading-line"></div></div><p class="section-intro reveal reveal-delay-1">A playful and personal selection of visual concepts exploring branding, typography, and digital experiences. These are <strong>original portfolio concepts</strong> presented in the visual world of SparrowCreati.</p></div>
+      <div class="filter-bar reveal" role="group" aria-label="Filter portfolio projects"><button class="filter active" data-filter="all" aria-pressed="true">All projects (03)</button><button class="filter" data-filter="brand" aria-pressed="false">Identity</button><button class="filter" data-filter="campaign" aria-pressed="false">Campaign</button><button class="filter" data-filter="digital" aria-pressed="false">Digital</button></div>
+      <div class="project-grid" id="project-grid">
+        <article class="project reveal" data-category="brand"><div class="project-media"><div class="project-overlay"><span class="project-index">01 / Identity</span><span class="concept-pill">Concept study</span></div><div class="brand-scene" aria-label="Nōma tea packaging design concept"><div class="brand-stage"></div><div class="brand-floating">FORM<br>MEETS<br>FEELING</div><div class="pack"><span class="pack-name">nōma</span><span class="pack-note">STEADY DAYS / TEA NO.01</span><span class="pack-seal"></span><span class="pack-note">MINT + MEADOW</span></div><div class="small-pack"><span>nōma<small>NO. 02</small></span></div><div class="coral-dot"></div></div></div><div class="project-meta"><div><span class="eyebrow muted">Visual identity / Packaging</span><h3>Nōma — Quiet Rituals</h3><p>A soft identity study shaped by Gwen's quiet, intentional design sensibility.</p></div><button class="project-open" aria-label="Read about Nōma concept" data-project="brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 19 19 5M7 5h12v12"/></svg></button></div></article>
+        <article class="project reveal reveal-delay-1" data-category="campaign"><div class="project-media"><div class="project-overlay"><span class="project-index">02 / Typography</span><span class="concept-pill">Concept study</span></div><div class="campaign-scene" aria-label="Bold Move With Intent campaign poster and social variations"><div class="poster"><div class="poster-rings"></div><div class="poster-copy"><span>MOVE</span><span>WITH</span><span>INTENT.</span></div></div><div class="mini-posters"><div class="mini-poster">MOVE<br>EVERY<br>DAY</div><div class="mini-poster">KEEP<br>GOING</div></div></div></div><div class="project-meta"><div><span class="eyebrow muted">Campaign / Art direction</span><h3>Move With Intent</h3><p>A bold concept showing Gwen's love for expressive typography and energy.</p></div><button class="project-open" aria-label="Read about Move With Intent concept" data-project="campaign"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 19 19 5M7 5h12v12"/></svg></button></div></article>
+        <article class="project reveal reveal-delay-2" data-category="digital"><div class="project-media"><div class="project-overlay"><span class="project-index">03 / Web</span><span class="concept-pill">Concept study</span></div><div class="digital-scene" aria-label="Form Lab conceptual website with desktop and mobile views"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i></div><div class="browser-head"><span>FORM / LAB</span><small>Work &nbsp; Studio &nbsp; Journal</small></div><div class="browser-body"><div><strong>Ideas into<br>clear form.</strong><p>A purposeful digital space for creative communication.</p><span class="browser-pill">EXPLORE THE WORK</span></div><div class="web-art"></div></div></div><div class="phone"><span class="phone-name">FORM<br>/LAB</span><div class="web-art"></div><span class="phone-label">Make<br>it clear.</span></div></div></div><div class="project-meta"><div><span class="eyebrow muted">Web / Responsive visual design</span><h3>Form / Lab</h3><p>A clean digital concept reflecting SparrowCreati's thoughtful web aesthetic.</p></div><button class="project-open" aria-label="Read about Form Lab concept" data-project="digital"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 19 19 5M7 5h12v12"/></svg></button></div></article>
+      </div>
+      <p class="project-note reveal">Portfolio note: The showcased projects above are original concept studies created to express Gwen's style and thinking for SparrowCreati. They are not presented as verified client case studies from the public profile.</p>
+    </div></section>
+    <section class="proof" aria-labelledby="proof-heading"><div class="container proof-inner"><div><span class="eyebrow" style="color:var(--lime)">A personal freelance foundation</span><div class="proof-lead" id="proof-heading">Independent work.<br><em>Real experience.</em></div></div><div class="proof-stats"><div class="stat"><strong class="count" data-target="104" data-suffix="">104</strong><span>Jobs on Upwork</span></div><div class="stat"><strong class="count" data-target="1700" data-suffix="+" data-display="1.7K+">1.7K+</strong><span>Hours logged</span></div><div class="stat"><strong>4.8<span style="font-size:.48em;color:#c9f57b">/5</span></strong><span>Upwork rating</span><small>77 reviews</small></div></div></div></section>
+    <section class="section capabilities" id="expertise" aria-labelledby="expertise-heading"><div class="container"><div class="section-heading"><div class="reveal"><span class="eyebrow muted">02 / What I bring</span><h2 class="display" id="expertise-heading">Different strengths.<br><span style="color:#b47791">One personal approach.</span></h2></div><p class="section-intro reveal reveal-delay-1">As SparrowCreati, I combine personality-driven graphic design with a practical understanding of how visuals need to function in the real world.</p></div><div class="cap-grid"><article class="cap-card c1 reveal"><span class="eyebrow">01 / Visual craft</span><div class="cap-icon"><div class="disc"></div></div><div><h3>Graphic<br>design</h3><p>Visual hierarchy, typography, composition, and purposeful communication.</p></div></article><article class="cap-card c2 reveal reveal-delay-1"><span class="eyebrow">02 / Built for screens</span><div class="cap-icon"><div class="windows"><i></i><i></i><i></i><i></i></div></div><div><h3>Digital<br>thinking</h3><p>Understanding how layouts, interaction, and responsive behavior work together.</p></div></article><article class="cap-card c3 reveal reveal-delay-2"><span class="eyebrow">03 / Beyond visuals</span><div class="cap-icon"><div class="code-lines"><i></i><i></i><i></i><i></i></div></div><div><h3>Technical<br>perspective</h3><p>A background in C, Java, and web development informs the design process.</p></div></article></div><p class="project-note">These capabilities reflect Gwen's public Upwork profile and personal positioning for SparrowCreati.</p></div></section>
+    <section class="section about" id="about" aria-labelledby="about-heading"><div class="container about-inner"><div class="about-graphic reveal" aria-hidden="true"><div class="about-symbol"><span class="sparrow-logo-svg about-logo" aria-hidden="true"><svg viewBox="0 0 100 100" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#111111"/>
+  <circle cx="50" cy="50" r="45.4" fill="#ffc7ea"/>
+  <g class="bird-sparrow">
+    <!-- Distinctive three-feather tail angled upward behind the round little bird -->
+    <path d="M39 58 C30 53 22 48 12 46 C18 55 26 62 36 64 Z" fill="#ffa539"/>
+    <path d="M39 55 C30 46 24 41 17 38 C20 49 27 58 36 61 Z" fill="#ffa539"/>
+    <path d="M40 54 C33 43 29 37 23 34 C24 44 29 53 38 59 Z" fill="#ffa539"/>
+    <!-- Rounded bird body, rising into the neck and head -->
+    <path d="M35 57 C35 49 40 44 49 41 C48 31 55 25 65 25 C75 25 82 32 82 41 C82 43 81 45 80 47 C82 59 75 74 63 79 C51 84 38 76 35 65 C34 62 34 60 35 57 Z" fill="#ffa539"/>
+    <!-- Short, softly pointed beak -->
+    <path d="M79 40 Q85 41 89 44 Q85 47 80 47 Z" fill="#ffa539"/>
+    <!-- Little feather tufts on top of the head -->
+    <path d="M57 29 Q55 22 50 21" fill="none" stroke="#ffa539" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M63 27 Q61 21 57 19" fill="none" stroke="#ffa539" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- A signature swept teardrop wing, white like the original SparrowCreati mark -->
+    <path class="bird-wing" d="M45 53 C49 46 60 45 66 49 C72 53 71 59 66 65 C62 69 55 72 45 70 C49 65 50 59 45 53 Z" fill="#ffffff"/>
+    <path d="M47 67 Q55 67 63 61" fill="none" stroke="#f2e5e6" stroke-width="1.7" stroke-linecap="round" opacity=".65"/>
+    <!-- Expressive eye and tiny glint -->
+    <circle cx="70.2" cy="37.2" r="3.3" fill="#1b1b1b"/>
+    <circle cx="71.25" cy="36.15" r="1.15" fill="#ffffff"/>
+    <!-- Rosy cheek -->
+    <ellipse cx="75.7" cy="45.7" rx="3.8" ry="2.8" fill="#f185a5" opacity=".95"/>
+    <!-- Little legs and three-toed sparrow feet -->
+    <path d="M51 77 L49 82 M49 82 L44 83 M49 82 L53 83 M66 77 L65 82 M65 82 L61 83 M65 82 L69 83" fill="none" stroke="#a85b27" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Tiny sparkle for a sweet, handmade mood -->
+  <path d="M23 26 Q24 20 25 26 Q31 27 25 28 Q24 34 23 28 Q17 27 23 26 Z" fill="#fffafc" opacity=".9"/>
+</svg></span></div><span class="about-sticker">SPARROW<br>CREATI<br>✳</span></div><div><span class="eyebrow muted reveal">03 / Behind SparrowCreati</span><h2 class="display reveal" id="about-heading">Hi,<br>I'm <span>Gwen.</span></h2><p class="reveal">SparrowCreati is my one-person creative portfolio and freelance identity. It reflects the style I love most: rounded forms, playful contrast, warm color, and visuals that still feel clean, intentional, and easy to connect with.</p><p class="reveal">I'm based in <strong>Baguio City, Philippines</strong>, and I work as an independent freelancer through Upwork. This website is meant to feel more like my brand world — a friendlier, more personal home for SparrowCreati than a standard freelancer profile.</p><div class="about-bottom reveal"><span class="about-chip">SparrowCreati</span><span class="about-chip">One-person studio</span><span class="about-chip">Graphic design</span><span class="about-chip">Philippines</span></div><div style="margin-top:33px" class="reveal"><a class="button button-dark" href="https://www.upwork.com/freelancers/~01012ef289c2777a97" target="_blank" rel="noopener noreferrer">Visit my Upwork profile <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 19 19 5M7 5h12v12"/></svg></a></div></div></div></section>
+    <section class="section process" id="process" aria-labelledby="process-heading"><div class="container"><div class="section-heading"><div class="reveal"><span class="eyebrow" style="color:var(--lime)">04 / How I work</span><h2 class="display" id="process-heading">A thoughtful process<br>for every project<span style="color:var(--lime)">.</span></h2></div><p class="section-intro reveal reveal-delay-1">When someone hires SparrowCreati, this is the kind of working process they can expect: collaborative, organized, and still open to exploration.</p></div><div class="process-grid"><div class="step reveal"><span class="step-number">01</span><div class="step-rule"></div><h3>Understand</h3><p>Get to know the objective, audience, and context before opening a design file.</p></div><div class="step reveal reveal-delay-1"><span class="step-number">02</span><div class="step-rule"></div><h3>Explore</h3><p>Develop different creative directions and find the idea worth pursuing.</p></div><div class="step reveal reveal-delay-2"><span class="step-number">03</span><div class="step-rule"></div><h3>Refine</h3><p>Fine-tune the details, from visual hierarchy to the smallest spacing decision.</p></div><div class="step reveal reveal-delay-3"><span class="step-number">04</span><div class="step-rule"></div><h3>Deliver</h3><p>Prepare the final assets with their real-world applications in mind.</p></div></div><div class="process-foot">This section describes SparrowCreati's intended working style for freelance collaborations.</div></div></section>
+    <section class="contact" id="contact" aria-labelledby="contact-heading"><div class="container"><div class="contact-main"><div class="reveal"><span class="eyebrow">05 / Work with SparrowCreati</span><h2 class="display" id="contact-heading">Let's design<br>something<br><em>memorable.</em></h2><p>If you're looking for a freelance designer who can bring a personal touch to branding, layouts, or digital visuals, I'd love to hear about your project. The easiest way to reach me is through Upwork.</p></div><a class="contact-action reveal reveal-delay-1" href="https://www.upwork.com/freelancers/~01012ef289c2777a97" target="_blank" rel="noopener noreferrer" aria-label="Contact SparrowCreati on Upwork">HIRE<br>GWEN<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 19 19 5M7 5h12v12"/></svg></a></div><footer class="contact-bottom"><span>© <span id="year">2026</span> SparrowCreati / Owned by Gwen</span><span>One designer, one point of view ✳</span><a href="https://www.upwork.com/freelancers/~01012ef289c2777a97" target="_blank" rel="noopener noreferrer">Upwork profile ↗</a></footer></div></section>
+  </main>
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description" hidden><div class="modal-dialog" tabindex="-1"><button class="modal-close" id="modal-close" aria-label="Close project details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5 19 19M19 5 5 19"/></svg></button><span class="eyebrow muted" id="modal-category"></span><h2 id="modal-title"></h2><p id="modal-description"></p><div class="modal-example" id="modal-example"><span id="modal-art-text"></span></div><div class="modal-info"><div><span class="eyebrow muted">Focus</span><strong id="modal-focus"></strong></div><div><span class="eyebrow muted">Status</span><strong>Original portfolio concept</strong><p>Illustrative work, not a verified client commission.</p></div></div><a href="#contact" class="button button-dark" id="modal-contact">Start a project like this <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 19 19 5M7 5h12v12"/></svg></a></div></div>
+  <script>
+    (() => {
+      'use strict';
+      const $=(s,base=document)=>base.querySelector(s);
+      const $$=(s,base=document)=>Array.from(base.querySelectorAll(s));
+      const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const menuToggle=$('#menu-toggle'),navLinks=$('#nav-links');
+      const closeMenu=()=>{navLinks.classList.remove('open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Open navigation')};
+      menuToggle.addEventListener('click',()=>{const opening=!navLinks.classList.contains('open');navLinks.classList.toggle('open',opening);menuToggle.setAttribute('aria-expanded',String(opening));menuToggle.setAttribute('aria-label',opening?'Close navigation':'Open navigation')});
+      $$('.nav-links a').forEach(a=>a.addEventListener('click',closeMenu));
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu()});
+      const bar=$('#progress-line');
+      let ticking=false;
+      const updateProgress=()=>{const max=document.documentElement.scrollHeight-window.innerHeight;bar.style.transform=`scaleX(${max>0?Math.min(1,scrollY/max):0})`;ticking=false};
+      window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(updateProgress);ticking=true}},{passive:true});updateProgress();
+      if('IntersectionObserver' in window && !reducedMotion){const revealObserver=new IntersectionObserver((entries,observer)=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}},{threshold:.085,rootMargin:'0px 0px -30px 0px'});$$('.reveal').forEach(el=>revealObserver.observe(el))}else{$$('.reveal').forEach(el=>el.classList.add('visible'))}
+      const filters=$$('.filter');
+      filters.forEach(button=>button.addEventListener('click',()=>{const val=button.dataset.filter;filters.forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});$$('.project').forEach(card=>{card.hidden=val!=='all'&&card.dataset.category!==val})}));
+      const data={
+        brand:{category:'01 / Brand identity & packaging',title:'Nōma — Quiet Rituals',description:'Nōma is an imagined contemporary tea label built around calm, everyday rituals. The visual study combines expressive minimal typography, a soft botanical palette, a geometric seal, and a coordinated packaging system. It reflects Gwen’s interest in brands that feel calm, tactile, and quietly distinctive.',focus:'Brand direction · Typographic identity · Packaging exploration',art:'nōma'},
+        campaign:{category:'02 / Campaign & typography',title:'Move With Intent',description:'A bold typographic experiment using high-contrast colors, kinetic circular forms, and energetic statements. The concept explores how one visual language can translate from a large-format poster into compact social-ready campaign layouts, with a strong, energetic tone.',focus:'Art direction · Expressive type · Social campaign concepts',art:'MOVE WITH INTENT.'},
+        digital:{category:'03 / Web & digital design',title:'Form / Lab',description:'A conceptual design studio website built around clarity, strong hierarchy, and a modular grid. Desktop and phone compositions demonstrate how a consistent visual language can shift across screen sizes without losing character, which is central to Gwen’s digital design approach.',focus:'Web layout · Responsive compositions · Digital art direction',art:'FORM / LAB'}
+      };
+      const modal=$('#project-modal'),dialog=$('.modal-dialog',modal),closeButton=$('#modal-close');let previousFocus=null;
+      function openModal(project){const item=data[project];if(!item)return;previousFocus=document.activeElement;$('#modal-category').textContent=item.category;$('#modal-title').textContent=item.title;$('#modal-description').textContent=item.description;$('#modal-focus').textContent=item.focus;$('#modal-art-text').textContent=item.art;$('#modal-example').className='modal-example '+project;modal.hidden=false;modal.classList.add('open');document.body.style.overflow='hidden';closeButton.focus()}
+      function closeModal(){if(!modal.classList.contains('open'))return;modal.classList.remove('open');modal.hidden=true;document.body.style.overflow='';previousFocus?.focus()}
+      $$('.project-open').forEach(button=>button.addEventListener('click',()=>openModal(button.dataset.project)));
+      closeButton.addEventListener('click',closeModal);
+      modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
+      $('#modal-contact').addEventListener('click',closeModal);
+      document.addEventListener('keydown',e=>{if(!modal.classList.contains('open'))return;if(e.key==='Escape'){e.preventDefault();closeModal()}if(e.key==='Tab'){const els=$$('a[href],button:not([disabled])',dialog).filter(el=>el.getClientRects().length);if(!els.length)return;const first=els[0],last=els[els.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}}});
+      $('#year').textContent=new Date().getFullYear();
+      // Upwork track record counts are deliberately static, based on the public profile checked 09 Oct 2026.
+    })();
+  </script>
+</body>
+</html>
